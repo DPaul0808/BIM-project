@@ -1,15 +1,21 @@
 <div class="bg-image img-fluid overflow-hidden position-relative" style="background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); position: absolute; width: 1920px; height: 220px; background-position: center ;">
-    <div class="container mt-5">
+    <div *ngIf="!result.Error" class="container mt-5">
         <h2 class="text-light">Results for "{{searchValue}}"</h2>
         <p class="text-light">{{result.totalResults}} results</p>
     </div>
+    <div *ngIf="result.Error" class="container mt-5">
+        <h2 class="text-light">Error: {{result.Error}}</h2>
+    </div>
 </div>
-<div class="container bg-white">
+<div *ngIf="!result.Error" class="container bg-white">
     <table class="table table-hover align-middle">
         <tbody>
             <tr *ngFor="let item of movies" class="border-bottom">
                 <td class="pe-0">
-                    <img src={{item.Poster}} width="130">
+                    <img *ngIf="item.Poster != 'N/A' else defaultImg" src={{item.Poster}} width="130">
+                    <ng-template #defaultImg>
+                       <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1728&q=80" width="130"> 
+                    </ng-template>
                 </td>
                 <td>{{item.Title}} <br>Release: {{item.Year}}</td>
                 <td>
@@ -18,11 +24,11 @@
             </tr>
         </tbody>
     </table>
-    <div class="container">
+    <div class="container my-3">
         <div class="row">
-            <button class="btn btn-light mx-5 col" ><i class="bi bi-arrow-left-circle-fill me-2"></i> Previous page</button>
-            <p class="col text-center">Page: {{currentPage}}</p>
-            <button class="btn btn-light mx-5 col" (click)="onNextClick()">Next page<i class="bi bi-arrow-right-circle-fill ms-2"></i></button>
+            <button *ngIf="currentPage > 1" class="btn btn-light mx-5 col" (click)="onPreviousClick()"><i class="bi bi-arrow-left-circle-fill me-2"></i> Previous page</button>
+            <p class="col text-center pt-2">Page: {{currentPage}} out of {{numberOfPages}}</p>
+            <button *ngIf="currentPage != numberOfPages" class="btn btn-light mx-5 col" (click)="onNextClick()">Next page<i class="bi bi-arrow-right-circle-fill ms-2"></i></button>
         </div>
     </div>
 </div>

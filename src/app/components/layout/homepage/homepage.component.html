@@ -1,10 +1,10 @@
     <div class="bg-image img-fluid position-relative" style="background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); position: absolute; width: 1920px; height: 623px; background-position: center center;">
-        <div class="container pt-5 pb-5">
+        <div class="container pt-5">
             <h1 class="text-white text-center">All the movies in this world are here.</h1>
             <h2 class="text-white text-center">Just watch them!</h2>
             <p class="text-white text-center pt-2">This is a search engine where you can find out more details<br> about your favorite movies!</p>
             <div class="d-flex justify-content-center">
-                <div class="col-md-7 pt-4">
+                <div class="col-md-7 pt-5">
                     <form class="d-flex" (ngSubmit)="searchMovie()">
                         <input type="text" class="form-control me-2" placeholder="Enter movie name..." [(ngModel)]="searchValue" name="searchValue">
                         <button type="submit" class="btn btn-outline-secondary"><i class="bi bi-search"></i></button>
@@ -14,20 +14,20 @@
             <p class="text-white text-center pt-5">Don't know what to watch? Check our personal preferences below!</p>
         </div>
     </div>
-    <div class="container mt-5 pb-5">
+    <div class="container mt-5 pt-5">
         <h4>Here is a list of our favorite movies.</h4>
         <div class="row text-cente">
             <div class="col" *ngFor="let item of favoriteMovies">
                 <a class="p-0 m-0" (click)="goToMovie(item.imdbID)">
                     <img src={{item.Poster}} height="320">
                 </a>
-                <a>{{item.Title}}</a>
+                <p>{{item.Title}}</p>
             </div>
         </div>
     </div>
-    <div class="row mt-5 mb-5 me-0">
+    <div class="row mt-5 pt-5 mb-5 pb-5 me-0">
         <div class="col position-relative">
-            <img src="https://images.unsplash.com/photo-1601944177325-f8867652837f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1177&q=80" style="height: 500px; background-position: center center;">
+            <img src="https://images.unsplash.com/photo-1601944177325-f8867652837f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1177&q=80" style="height: 600px; position: relative; background-position: center center;">
         </div>
         <div class="col ms-5 ps-5 mt-5 pt-5">
             <h1>Every movie you like <br> is on this website! <br> Don't believe it? Try it!</h1>

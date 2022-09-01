@@ -14,6 +14,7 @@ export class MoviesComponent implements OnInit {
   result: MovieList;
   searchValue: string;
   currentPage: number;
+  numberOfPages: number;
 
   public endpointURL = "http://www.omdbapi.com/?apikey=109ae1cc";
 
@@ -34,7 +35,9 @@ export class MoviesComponent implements OnInit {
           this.result = response;
           this.movies = this.result.Search;
           this.currentPage = params.page;
-          this.searchValue = params.searchValue
+          this.searchValue = params.searchValue;
+          this.numberOfPages = Math.floor(this.result.totalResults / 10) + 1
+          console.log(this.result.Error)
           }
         )
       }
@@ -57,7 +60,6 @@ export class MoviesComponent implements OnInit {
 
   goToMovie(imdbID: string){
     this.router.navigate(["movie/" + imdbID]);
-    window.scroll(0,0);
   }
 
 }

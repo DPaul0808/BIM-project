@@ -15,8 +15,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void { }
 
   searchMovie(){
-    console.log(this.searchValue);
-    this.router.navigate(["search/" + this.searchValue +"/1"]);
+    if(this.searchValue){
+      this.router.navigate(["search/" + this.searchValue +"/1"]);
+    }
+    this.searchValue = ''
   }
 
 }

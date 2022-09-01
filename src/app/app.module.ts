@@ -21,7 +21,7 @@ import { DetailedMovieComponent } from './components/movie/detailed-movie/detail
     DetailedMovieComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     FormsModule

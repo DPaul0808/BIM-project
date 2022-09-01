@@ -4,4 +4,5 @@ export class MovieList{
     Response: boolean;
     Search: Movie[];
     totalResults: number;
+    Error: string;
 }

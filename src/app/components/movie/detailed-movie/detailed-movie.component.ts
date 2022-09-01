@@ -17,6 +17,7 @@ export class DetailedMovieComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovie();
+    window.scroll(0,0)
   }
 
   getMovie(){

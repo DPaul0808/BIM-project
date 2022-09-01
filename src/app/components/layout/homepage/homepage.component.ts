@@ -29,8 +29,9 @@ export class HomepageComponent implements OnInit {
   }
 
   searchMovie(){
-    console.log(this.searchValue)
-    this.router.navigate(["search/" + this.searchValue + '/1'])
+    if(this.searchValue){
+      this.router.navigate(["search/" + this.searchValue + '/1'])
+    }
   }
 
   goToMovie(imdbID: string){
