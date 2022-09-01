@@ -1,0 +1,10 @@
+<nav class="navbar bg-dark">
+    <div class="container">  
+            <a class="navbar-brand text-white" href="">Movies</a>
+            <form class="d-flex" (ngSubmit)="searchMovie()">
+                <input type="text" class="form-control me-2" placeholder="Enter movie name..." [(ngModel)]="searchValue" name="searchValue">
+                <button type="submit" class="btn btn-outline-secondary"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
+</nav>
+

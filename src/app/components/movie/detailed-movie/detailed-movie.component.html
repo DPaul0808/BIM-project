@@ -1,0 +1,36 @@
+<div class="bg-image img-fluid overflow-hidden position-relative" style="background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); position: relative; width: 1920px; height: 950px; background-position: center ;">
+    <div class="container mt-5 text-light">
+        <h1><i class="bi bi-film"></i> {{movie.Title}}</h1>
+        <h5>{{movie.Year}} <i class="bi bi-dot"></i> {{movie.Rated}} <i class="bi bi-dot"></i> {{movie.Runtime}} <i class="bi bi-dot"></i> {{movie.Country}}</h5>
+    </div>
+    <div class="container py-3 bg-dark text-white">
+        <div class="row border-bottom">
+            <img class="col-3" src={{movie.Poster}}>
+            <div class="col">
+                <h6 class="border-bottom p-5 border-secondary">{{movie.Plot}}</h6>
+                <h5 class="px-2">Cast</h5>
+                <p class="border-bottom p-2 border-secondary">{{movie.Actors}}</p>
+                <h5 class="px-2">Director</h5>
+                <p class="border-bottom p-2 border-secondary">{{movie.Director}}</p>
+                <h5 class="px-2">Writers</h5>
+                <p class="border-bottom p-2 border-secondary">{{movie.Writer}}</p>
+            </div>
+        </div>
+        <div class="row text-center py-3">
+            <div class="col">
+                <h4>Awards</h4>
+                <p>{{movie.Awards}}</p>
+            </div>
+            <div class="col">
+                <h4>Box Office</h4>
+                <p>{{movie.BoxOffice}}</p>
+            </div>
+        </div>
+        <div class="row text-center py-5">
+            <div class="col border-start border-end" *ngFor="let item of movie.Ratings">
+                <h5>{{item.Source}}</h5>
+                <p>{{item.Value}}</p>
+            </div>
+        </div>
+    </div>
+</div>

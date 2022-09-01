@@ -1,0 +1,28 @@
+<div class="bg-image img-fluid overflow-hidden position-relative" style="background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); position: absolute; width: 1920px; height: 220px; background-position: center ;">
+    <div class="container mt-5">
+        <h2 class="text-light">Results for "{{searchValue}}"</h2>
+        <p class="text-light">{{result.totalResults}} results</p>
+    </div>
+</div>
+<div class="container bg-white">
+    <table class="table table-hover align-middle">
+        <tbody>
+            <tr *ngFor="let item of movies" class="border-bottom">
+                <td class="pe-0">
+                    <img src={{item.Poster}} width="130">
+                </td>
+                <td>{{item.Title}} <br>Release: {{item.Year}}</td>
+                <td>
+                    <button class="btn btn-dark" (click)="goToMovie(item.imdbID)">See more</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="container">
+        <div class="row">
+            <button class="btn btn-light mx-5 col" ><i class="bi bi-arrow-left-circle-fill me-2"></i> Previous page</button>
+            <p class="col text-center">Page: {{currentPage}}</p>
+            <button class="btn btn-light mx-5 col" (click)="onNextClick()">Next page<i class="bi bi-arrow-right-circle-fill ms-2"></i></button>
+        </div>
+    </div>
+</div>
